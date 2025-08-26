@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #1f1f1f;
+  color: #e0d6b9;
+  overflow-x: hidden;
+}
+
+#cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1f1f1f;
+  animation: fadeIn 2s ease;
+}
+
+#cover h1 {
+  font-size: 2.5em;
+  color: #e0d6b9;
+  margin-bottom: 20px;
+}
+
+#cover button {
+  background-color: #e0d6b9;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#book {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s ease;
+}
+
+.page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.page.active {
+  display: flex;
+  opacity: 1;
+}
+
+.arrow {
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: #e0d6b9;
+}
+
+.arrow:first-of-type {
+  left: 10px;
+}
+
+.arrow:last-of-type {
+  right: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jean, .luigi {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.palabra-clave {
+  color: #e5cb76
+;
+}
+
+.resaltado-rojo {
+  color: #ff3b3f;
+  font-weight: bold;
+}
+
+.frase-final {
+  color: #e0d6b9;
+  font-weight: bold;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.imagen-destacada {
+  width: 90%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #e0d6b9;
+}
+
+.heart {
+  position: absolute;
+  top: 15%; /* Lo baja un poco para que se vea bien */
+  left: 50%;
+  transform: translate(-50%, 0) rotate(45deg);
+  width: 60px;
+  height: 60px;
+  background-color: #ff3b3f;
+  animation: pulse 1.5s infinite;
+  z-index: 2;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #ff3b3f;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -30px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -30px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, 0) rotate(45deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, 0) rotate(45deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, 0) rotate(45deg) scale(1);
+  }
+}
+
+
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.2) rotate(-45deg); }
+}
+
+.viento {
+  display: inline-block;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flotante {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #e0d6b9;
+  font-size: 18px;
+  opacity: 0;
+  pointer-events: none;
+  animation: volar 2s ease-out forwards;
+  z-index: 100;
+}
+
+@keyframes volar {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.marco-texto {
+  border: 3px solid #e0d6b9; /* Color beige claro */
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05); /* Un fondo suave translúcido */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Sombras sutiles */
+  max-width: 80%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 16px;
+  animation: fadeIn 2s ease;
+}
+
+.collage img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.collage img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
